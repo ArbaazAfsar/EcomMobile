@@ -13,7 +13,7 @@ class product(models.Model):
     DELETE = 0
     DELETE_CHOICES = ((LIVE, 'live'), (DELETE, 'delete'))
     pr_name = models.CharField(max_length=200)
-    Brand_name = models.ForeignKey(brands, on_delete= models.CASCADE)
+    Brand_name = models.ForeignKey(brands, on_delete= models.CASCADE, related_name='product_brand')
     pr_price = models.DecimalField(max_digits=15, decimal_places=2)
     pr_Description = models.TextField()
     pr_image = models.ImageField(upload_to= '/media')
