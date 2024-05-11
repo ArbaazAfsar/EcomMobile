@@ -20,7 +20,7 @@ class Order(models.Model):
     )
     
     order_status = models.IntegerField(choices= STATUS_CHOICE, default=CART_STAGE)
-    owner = models.ForeignKey(Customer, on_delete=models.SET_NULL, related_name='order')
+    owner = models.ForeignKey(Customer, on_delete=models.SET_NULL, related_name='order', null=True)
     delete_status = models.IntegerField(choices=DELETE_CHOICES, default=LIVE)
     create_at = models.DateTimeField(auto_now_add= True)
     update_at = models.DateTimeField(auto_now=True)
@@ -30,6 +30,6 @@ class Order(models.Model):
 
 
 class orderItem(models.Model):
-    product = models.ForeignKey(product, on_delete=models.SET_NULL, related_name="add_cart")
+    product = models.ForeignKey(product, on_delete=models.SET_NULL, related_name="add_cart", null=True)
     quantity = models.IntegerField(default=1)
     owner = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_item')

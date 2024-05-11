@@ -16,7 +16,7 @@ class product(models.Model):
     Brand_name = models.ForeignKey(brands, on_delete= models.CASCADE, related_name='product_brand')
     pr_price = models.DecimalField(max_digits=15, decimal_places=2)
     pr_Description = models.TextField()
-    pr_image = models.ImageField(upload_to= '/media')
+    pr_image = models.ImageField(upload_to= 'media')
     Priority = models.IntegerField(default= 0)
     delete_status = models.IntegerField(choices=DELETE_CHOICES, default=LIVE)
     create_at = models.DateTimeField(auto_now_add= True)
