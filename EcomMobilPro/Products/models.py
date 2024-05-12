@@ -4,6 +4,7 @@ from django.db import models
 
 class brands(models.Model):
     Brand_name = models.CharField(max_length=100)
+    Brand_logo = models.ImageField(upload_to='media')
     
     
 # Mobiles model
