@@ -2,9 +2,12 @@ from django.db import models
 
 # brands Model
 
-class brands(models.Model):
+class brand(models.Model):
     Brand_name = models.CharField(max_length=100)
-    Brand_logo = models.ImageField(upload_to='media')
+    Brand_logo = models.ImageField(upload_to='media', null=True)
+    
+    def __str__(self):
+        return self.Brand_name
     
     
 # Mobiles model
@@ -14,7 +17,7 @@ class product(models.Model):
     DELETE = 0
     DELETE_CHOICES = ((LIVE, 'live'), (DELETE, 'delete'))
     pr_name = models.CharField(max_length=200)
-    Brand_name = models.ForeignKey(brands, on_delete= models.CASCADE, related_name='product_brand')
+    Brand_name = models.ForeignKey(brand, on_delete= models.CASCADE, related_name='product_brand')
     pr_price = models.DecimalField(max_digits=15, decimal_places=2)
     pr_Description = models.TextField()
     pr_image = models.ImageField(upload_to= 'media')
