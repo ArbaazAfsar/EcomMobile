@@ -22,16 +22,19 @@
                 </div>
                 <nav>
                     <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li>
-                            <select >
-                                <option value="All Products">All products</option>
-                                <option value="Apple">Apple</option>
-                                <option value="Samsung">Samsung</option>
-
-                            </select>
-
-                        </li>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        
+                        <ul class="menu">
+                            <li><a href="{% url 'productds_List' %}">All Mobiles &dtrif;</a>
+                                <ul class="dropdown">
+                                    <li><a href="#">Web Development</a></li>
+                                    <li><a href="#">Web Design</a></li>
+                                    <li><a href="#">Illustration</a></li>
+                                    <li><a href="#">Iconography</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
                         <li><a href="account.html">Account</a></li>
@@ -44,13 +47,12 @@
             {% block banner %}
             <div class="row">
                 <div class="col-2">
-                    <h1>Give Your Workout <br> A New Style!</h1>
-                    <p>Success isn't always about greatness. It;s about consistency. Consistent <br> hard work gains
-                        success. Greatness will come.</p>
+                    <h1>Solo Mobile:<br>Your Pathway to Digital Freedom!</h1>
+                    <p>Navigate the digital world with confidence. Solo Mobile empowers your journey towards success, reminding you that greatness is achieved through consistent hard work.</p>
                     <a href="" class="btn">Explore Now &#8594;</a>
                 </div>
                 <div class="col-2">
-                    <img src="{% static  'images/image1.png' %}">
+                    <img src="{% static  'images/Mobiles-banner-img.png' %}">
                 </div>
              
             </div>

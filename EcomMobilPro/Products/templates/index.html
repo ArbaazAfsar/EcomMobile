@@ -10,24 +10,6 @@
 {% block condent %}
 {% load static %}
 
-       <!--Mobile Brands -->
-
-    
-
-       <div class="categories">
-           <div class="small-container">
-            <h2 class="title">Mobile Brands</h2>
-        
-                <div class="row">
-                    {% for brand in brands %}
-                   <div class="col-3 logos">
-                       <a href=""><img src="{{ brand.Brand_logo.url}}"></a>
-                   </div>
-                   {% endfor %}
-                </div>
-               
-           </div>
-       </div>   
     
     
 
@@ -59,6 +41,26 @@
         </div>
        
     </div>
+
+       <!--Mobile Brands -->
+
+    
+
+       <div class="categories">
+        <div class="small-container">
+         <h2 class="title">Mobile Brands</h2>
+     
+             <div class="row">
+                 {% for brand in brands %}
+                <div class="col-3 logos">
+                    <a href=""><img src="{{ brand.Brand_logo.url}}"></a>
+                </div>
+                {% endfor %}
+             </div>
+            
+        </div>
+    </div>   
+ 
 
     <!-- Offer -->
     <div class="offer">
