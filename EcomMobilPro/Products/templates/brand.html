@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block dropdown %}
+
+{% for brd in brnd %}
+<li><a href="{% url 'brandMob' brd.Brand_name %}">{{ brd.Brand_name }}</a></li>
+{% endfor %}
+
+{% endblock dropdown %}
+
+
+{% block condent %}
+
+<div class="small-container">
+    <h2 class="title">{{brands.0.Brand_name}}</h2>
+
+    <div class="row">
+
+        {% for brand in brands %}
+        <a href="product_details.html">
+            <div class="col-4">
+                <img src="{{ brand.pr_image.url }}">
+                <div class="pro-con">
+                    <h4>{{ brand.pr_name }}</h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>₹{{ brand.pr_price }}</p>
+                </div>
+            </div>
+        </a>
+
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock condent %}

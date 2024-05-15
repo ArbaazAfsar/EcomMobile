@@ -44,8 +44,9 @@ nav ul li{
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff;
+    background-color: #bebdba67;
     border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 10px;
 }
 
@@ -69,7 +70,7 @@ nav ul li{
 }
 
 .menu li a:hover {
-    background-color: #f0f0f0;
+    background-color: #eee4e47d;
 }
 
 
