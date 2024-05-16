@@ -3,8 +3,8 @@
 
 {% block dropdown %}
 
-{% for brd in brnd %}
-<li><a href="{% url 'brandMob' brd.Brand_name %}">{{ brd.Brand_name }}</a></li>
+{% for brd in all_brands %}
+<li><a href="{% url 'brandMob' brd.Brand_name  %}">{{ brd.Brand_name }}</a></li>
 {% endfor %}
 
 {% endblock dropdown %}
@@ -12,13 +12,31 @@
 
 {% block condent %}
 
+
+
+{% if message %}
+<br>
+<br>
+<br>
+<br>
+
+  <h1 style="text-align: center;"> {{mobile.Brand_name}} {{message}}</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% else %}
+
 <div class="small-container">
     <h2 class="title">{{brands.0.Brand_name}}</h2>
 
     <div class="row">
 
         {% for brand in brands %}
-        <a href="product_details.html">
+        <a href="{% url 'products_details' brand.pk brand.Brand_name %}">
             <div class="col-4">
                 <img src="{{ brand.pr_image.url }}">
                 <div class="pro-con">
@@ -39,6 +57,11 @@
     </div>
 
 </div>
+
+    
+{% endif %}
+    
+
 
 
 {% endblock condent %}

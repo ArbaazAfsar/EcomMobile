@@ -10,32 +10,5 @@
 {% endblock dropdown %}
 
 {% block condent %}
-<div class="small-container">
-    <h2 class="title">All Mobiles</h2>
-
-    <div class="row">
-
-        {% for mobile in mobiles %}
-        <a href="product_details.html">
-            <div class="col-4">
-                <img src="{{ mobile.pr_image.url }}">
-                <div class="pro-con">
-                    <h4>{{ mobile.pr_name }}</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>₹{{ mobile.pr_price }}</p>
-                </div>
-            </div>
-        </a>
-
-        {% endfor %}
-    </div>
-
-</div>
-
+{% include 'allProducts.html' %}
 {% endblock condent %}

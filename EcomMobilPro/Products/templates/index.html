@@ -7,7 +7,7 @@
 {% block dropdown %}
 
 {% for brd in brands %}
-<li><a href="{% url 'brandMob' brd.Brand_name %}">{{ brd.Brand_name }}</a></li>
+<li><a href="{% url 'brandMob' brd.Brand_name  %}">{{ brd.Brand_name }}</a></li>
 {% endfor %}
 
 {% endblock dropdown %}
@@ -22,53 +22,13 @@
 
 <!-- Featured Products -->
 
-<div class="small-container">
-    <h2 class="title">All Mobiles</h2>
-
-    <div class="row">
-
-        {% for mobile in mobiles %}
-        <a href="product_details.html">
-            <div class="col-4">
-                <img src="{{ mobile.pr_image.url }}">
-                <div class="pro-con">
-                    <h4>{{ mobile.pr_name }}</h4>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>₹{{ mobile.pr_price }}</p>
-                </div>
-            </div>
-        </a>
-
-        {% endfor %}
-    </div>
-
-</div>
+{% include 'allProducts.html' %}
 
 <!--Mobile Brands -->
 
 
 
-<div class="categories">
-    <div class="small-container">
-        <h2 class="title">Mobile Brands</h2>
-
-        <div class="row">
-            {% for brand in brands %}
-            <div class="col-3 logos">
-                <a href=""><img src="{{ brand.Brand_logo.url}}"></a>
-            </div>
-            {% endfor %}
-        </div>
-
-    </div>
-</div>
-
+{% include 'mobileBrand.html' %}
 
 <!-- Offer -->
 <div class="offer">
