@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_list_or_404,get_object_or_404
 from .models import brand,product
-
+from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
@@ -11,14 +11,15 @@ def index(request):
 def productsLists(request):
     brands = brand.objects.all()
     mobiles = product.objects.all()
+    pro_pages = Paginator(mobiles,3)
+    page_num = request.GET.get('page')
+    mobiles= pro_pages.get_page(page_num)
     return render(request, 'productsList.html', {'brands':brands,  'mobiles': mobiles})
 
 def base(request):
     brands = brand.objects.all()
     return render(request, 'base.html', {'brands':brands} )
     
-
-
 
 
 def brand_mob(request, Brand_name):
@@ -29,7 +30,7 @@ def brand_mob(request, Brand_name):
         return render(request, 'brand.html', {'brands': brands, 'all_brands': all_brands})
     else:
         all_brands = brand.objects.all()
-        message = "This product is not available in this time"
+        message = "This brand's product is not available now"
         return render(request, 'brand.html',  {'message':message,'all_brands': all_brands})
 
     

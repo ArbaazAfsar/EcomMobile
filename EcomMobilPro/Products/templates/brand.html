@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block dropdown %}
 
-{% for brd in all_brands %}
-<li><a href="{% url 'brandMob' brd.Brand_name  %}">{{ brd.Brand_name }}</a></li>
-{% endfor %}
-
-{% endblock dropdown %}
 
 
 {% block condent %}

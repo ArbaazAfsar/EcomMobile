@@ -4,13 +4,7 @@
 
 
 
-{% block dropdown %}
 
-{% for brd in brands %}
-<li><a href="{% url 'brandMob' brd.Brand_name  %}">{{ brd.Brand_name }}</a></li>
-{% endfor %}
-
-{% endblock dropdown %}
 
 
 {% block condent %}
@@ -23,6 +17,9 @@
 <!-- Featured Products -->
 
 {% include 'allProducts.html' %}
+
+
+{% include 'pageNext.html' %}
 
 <!--Mobile Brands -->
 

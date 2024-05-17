@@ -26,13 +26,10 @@
                         <ul class="menu">
                             <li><a href="{% url 'productds_List' %}">All Mobiles &dtrif;</a>
                                 <ul class="dropdown">
-                                    {% block dropdown %}
-
-
-
-                                    {% endblock dropdown %}
-
-
+                               
+                                    {% for brd in brands %}
+                                    <li><a href="{% url 'brandMob' brd.Brand_name  %}">{{ brd.Brand_name }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                         </ul>
@@ -47,10 +44,10 @@
 
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
-                        <li><a href="account.html">Account</a></li>
+                        <li><a href="{% url 'account' %}">Account</a></li>
                     </ul>
                 </nav>
-                <a href="cart.html"><img src="{% static  'images/cart.png' %}" width="30px" height="30px"></a>
+                <a href="{% url 'cart' %}"><img src="{% static  'images/cart.png' %}" width="30px" height="30px"></a>
                 <img src="{% static  'images/menu.png' %}" class="menu-icon" onclick="menutoggle()">
             </div>
 
@@ -133,6 +130,7 @@
             }
         }
     </script>
+    
 
 </body>
 
