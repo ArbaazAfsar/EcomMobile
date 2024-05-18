@@ -1,9 +1,21 @@
 {% load static %}
+<!-- Pagination links -->
+<div class="page_section">
+    <div class="page-btn">
 
-<div class="page-btn">
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>4</span>
-    <span>→</span>
+        {% if mobiles.has_previous %}
+        <a href="?page=1"><span>first</span></a>
+        <a href="?page={{ mobiles.previous_page_number }}"><span><<</span></a>
+        {% endif %}
+
+        {% for n in pro_pages %}
+        <a href="?page={{ n.number }}"><span>{{ n.number }}</span></a>
+        {% endfor %}
+
+        {% if mobiles.has_next %}
+        <a href="?page={{ mobiles.next_page_number }}"><span>>></span></a>
+        <a href="?page={{ mobiles.paginator.num_pages }}"><span>last</span></a>
+        {% endif %}
+
+    </div>
 </div>

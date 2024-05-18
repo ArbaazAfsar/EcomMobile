@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block dropdown %}
 
-{% for brd in brnd %}
-<li><a href="{% url 'brandMob' brd.Brand_name  %}">{{ brd.Brand_name }}</a></li>
-{% endfor %}
-
-{% endblock dropdown %}
 
 
 {% block banner %}
@@ -15,7 +9,7 @@
 {% endblock banner %}
     
 
-{% block condent %}
+{% block content %}
 {% load static %}
 
 
@@ -129,4 +123,4 @@
 
 </html>
 
-{% endblock condent %}
+{% endblock content %}

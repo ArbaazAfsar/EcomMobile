@@ -4,7 +4,8 @@
 
 
 
-{% block condent %}
+{% block content %}
+{% load static %}
 
 
 
@@ -14,7 +15,7 @@
 <br>
 <br>
 
-  <h1 style="text-align: center;"> {{mobile.Brand_name}} {{message}}</h1>
+  <h1 style="text-align: center;"> {{all_brands.Brand_name}} {{message}}</h1>
 <br>
 <br>
 <br>
@@ -25,11 +26,11 @@
 {% else %}
 
 <div class="small-container">
-    <h2 class="title">{{brands.0.Brand_name}}</h2>
+    <h2 class="title">{{mobiles.0.Brand_name}}</h2>
 
     <div class="row">
 
-        {% for brand in brands %}
+        {% for brand in mobiles %}
         <a href="{% url 'products_details' brand.pk brand.Brand_name %}">
             <div class="col-4">
                 <img src="{{ brand.pr_image.url }}">
@@ -54,8 +55,11 @@
 
     
 {% endif %}
+
+{% include 'pageNext.html' %}
+
     
 
 
 
-{% endblock condent %}
+{% endblock content %}

@@ -6,7 +6,10 @@ from django.core.paginator import Paginator
 def index(request):
     brands = brand.objects.all()
     mobiles = product.objects.all()
-    return render(request, 'index.html', {'brands':brands, 'mobiles': mobiles})
+    pro_pages = Paginator(mobiles,3)
+    page_num = request.GET.get('page')
+    mobiles= pro_pages.get_page(page_num)
+    return render(request, 'index.html', {'brands':brands, 'mobiles': mobiles, 'pro_pages':pro_pages})
 
 def productsLists(request):
     brands = brand.objects.all()
@@ -14,7 +17,7 @@ def productsLists(request):
     pro_pages = Paginator(mobiles,3)
     page_num = request.GET.get('page')
     mobiles= pro_pages.get_page(page_num)
-    return render(request, 'productsList.html', {'brands':brands,  'mobiles': mobiles})
+    return render(request, 'productsList.html', {'brands':brands,  'mobiles': mobiles, 'pro_pages':pro_pages})
 
 def base(request):
     brands = brand.objects.all()
@@ -23,23 +26,27 @@ def base(request):
 
 
 def brand_mob(request, Brand_name):
-    message = None
-    brands = product.objects.filter(Brand_name__Brand_name=Brand_name)
-    if brands.exists():
-        all_brands = brand.objects.all()
-        return render(request, 'brand.html', {'brands': brands, 'all_brands': all_brands})
+    mobiles = product.objects.filter(Brand_name__Brand_name=Brand_name)
+    if mobiles.exists():
+        brands = brand.objects.all()
+        pro_pages = Paginator(mobiles,3)
+        page_num = request.GET.get('page')
+        mobiles= pro_pages.get_page(page_num)
+        return render(request, 'brand.html', {'brands': brands, 'mobiles': mobiles, 'pro_pages':pro_pages})
     else:
-        all_brands = brand.objects.all()
+        brands = brand.objects.all()
         message = "This brand's product is not available now"
-        return render(request, 'brand.html',  {'message':message,'all_brands': all_brands})
+        return render(request, 'brand.html',  {'message':message,'brands': brands})
+
+
 
     
     
 def productDetails(request, pk, Brand_name):
     mobile = product.objects.get( id = pk)
-    brands = product.objects.filter(Brand_name__Brand_name=Brand_name)
-    brnd= brand.objects.all()
-    return render(request, 'product_details.html', {'mobile':mobile, 'brands': brands, 'brnd':brnd})
+    Brand = product.objects.filter(Brand_name__Brand_name=Brand_name)
+    brands= brand.objects.all()
+    return render(request, 'product_details.html', {'mobile':mobile, 'Brand': Brand, 'brands':brands})
 
 
 
