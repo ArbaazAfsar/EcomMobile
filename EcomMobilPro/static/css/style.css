@@ -483,6 +483,7 @@ th:last-child{
     background: radial-gradient(#fff, #ffd6d6);
 }
 .form-container{
+  
     background: #fff;
     width: 300px;
     height: 400px;
@@ -508,7 +509,7 @@ th:last-child{
     max-width: 300px;
     padding: 0 20px;
     position: absolute;
-    top: 130px;
+    top: 80px;
     transition: transform 1s;
 }
 form input{
@@ -529,6 +530,7 @@ form .btn:focus{
 }
 #LoginForm{
     left: -300px;
+    top: 110px;
 }
 #RegForm{
     left: 0;

@@ -4,12 +4,13 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
+    Latest_products = product.objects.order_by('-id')[:3]
     brands = brand.objects.all()
     mobiles = product.objects.all()
     pro_pages = Paginator(mobiles,3)
     page_num = request.GET.get('page')
     mobiles= pro_pages.get_page(page_num)
-    return render(request, 'index.html', {'brands':brands, 'mobiles': mobiles, 'pro_pages':pro_pages})
+    return render(request, 'index.html', {'brands':brands, 'mobiles': mobiles, 'pro_pages':pro_pages, 'Latest_products':Latest_products})
 
 def productsLists(request):
     brands = brand.objects.all()
