@@ -121,6 +121,7 @@ p{
     margin: 30px 0;
     border-radius: 30px;
     transition: background 0.5s;
+    
 }
 .btn:hover{
     background: #ddd8d8;
@@ -136,9 +137,7 @@ p{
     background: radial-gradient(#f7f5f5,#f4e0ce);
 }
 
-hr{
-    
-}
+
 .col-3 {
     flex-basis: 30%;
     max-width: 150px;

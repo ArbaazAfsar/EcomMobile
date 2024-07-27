@@ -27,6 +27,7 @@ def account(request):
                 name = username,
                 user = user,
                 phone = phone,
+                address = address
             ) 
             print(customer)
             messages.success(request, 'User registered successfully. Please login')
